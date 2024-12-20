@@ -1,6 +1,39 @@
 {
   "nav": {
     "home": "Home",
+    "products": {
+      "index": "Products",
+      "wave-guide-components": "Wave Guide Components",
+      "coaxial-components": "Coaxial Components",
+      "microwave-millimeterwave-antennas": "Microwave & Millimeterwave Antennas",
+      "technical-reference": "Technical Reference",
+      "in-stock": "In Stock"
+    },
+    "services": {
+      "index": "Services"
+    },
+    "about-us": {
+      "index": "About Us"
+    },
+    "contact-us": {
+      "index": "Contact Us",
+      "contact-info": "Contact Info",
+      "agent-distributors": "Agent & Distributors",
+      "request-for-quote": "Request For Quote"
+    },
+    "faq": {
+      "index": "FAQ"
+    },
+    "application": {
+      "index": "Application",
+      "weather-radar": "Weather Radar"
+    },
+    "terms-conditions": {
+      "index": "Terms & Conditions"
+    },
+    "quote": {
+      "index": "Quote"
+    },
     "about": {
       "about-project": "The project",
       "about-us": "About us",

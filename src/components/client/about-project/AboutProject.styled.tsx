@@ -1,9 +1,9 @@
-import { styled } from '@mui/system'
-import { Grid, Typography } from '@mui/material'
+import { styled } from '@mui/material'
+import { Grid2 as Grid, Typography } from '@mui/material'
 
-import theme from 'common/theme'
+// import theme from 'common/theme'
 
-export const Root = styled(Grid)(() => ({
+export const Root = styled(Grid)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -15,17 +15,17 @@ export const Root = styled(Grid)(() => ({
   },
 }))
 
-export const Heading = styled(Typography)(() => ({
+export const Heading = styled(Typography)(({ theme }) => ({
   textAlign: 'center',
   padding: theme.spacing(10, 0, 7, 0),
 }))
 
-export const Count = styled('span')(() => ({
+export const Count = styled('span')(({ theme }) => ({
   fontSize: theme.typography.pxToRem(64),
   fontWeight: 'bold',
 }))
 
-export const Text = styled(Typography)(() => ({
+export const Text = styled(Typography)(({ theme }) => ({
   fontSize: theme.typography.pxToRem(16),
   textAlign: 'center',
 }))

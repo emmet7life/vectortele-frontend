@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography } from '@mui/material'
+import { Grid2 as Grid, Typography } from '@mui/material'
 import { useTranslation } from 'next-i18next'
 
 import { routes } from 'common/routes'
@@ -14,7 +14,7 @@ export default function MainNavMenu({ children }: { children?: React.ReactNode }
 
   return (
     <Grid container direction="row" wrap="nowrap" alignItems="baseline" spacing={4}>
-      <Grid item>
+      <Grid>
         <LinkButton
           variant="outlined"
           size="large"
@@ -26,10 +26,10 @@ export default function MainNavMenu({ children }: { children?: React.ReactNode }
           </Typography>
         </LinkButton>
       </Grid>
-      <Grid item>
+      <Grid>
         <DonationMenu />
       </Grid>
-      <Grid item>
+      <Grid>
         <ProjectMenu />
       </Grid>
       {/* <Grid item>

@@ -3,11 +3,10 @@
   "version": "0.9.13",
   "license": "MIT",
   "repository": "https://github.com/orgs/podkrepi-bg",
-  "packageManager": "yarn@3.3.0",
   "scripts": {
     "predev": "shx test -e .env.local && exit 0 || shx echo 'You need to create .env.local file. Please check README.md!' && exit 1",
-    "dev": "yarn && next dev -p 3040",
-    "build": "yarn && next build",
+    "dev": "next dev -p 3040",
+    "build": "next build",
     "start": "next start -p 3040",
     "test": "jest --env=jsdom",
     "test:e2e": "cd ./e2e && yarn run test:e2e",
@@ -26,6 +25,14 @@
     "sitemap": "next-sitemap"
   },
   "dependencies": {
+    "dayjs": "^1.11.7",
+    "immer": "^9.0.19",
+    "json5": "^2.2.3",
+    "jsonwebtoken": "^9.0.2",
+    "react-hook-form": "7.43.1",
+    "use-context-selector": "^1.4.4",
+    "zustand": "^4.3.5",
+    "clsx": "^2.1.1",
     "@emotion/cache": "^11.13.1",
     "@emotion/react": "^11.13.3",
     "@emotion/server": "^11.4.0",
@@ -83,6 +90,7 @@
     "remark-parse": "^10.0.2",
     "remark-rehype": "^10.1.0",
     "sanitize-html": "^2.12.1",
+    "sass": "^1.83.0",
     "sharp": "^0.32.6",
     "slick-carousel": "^1.8.1",
     "slugify": "^1.6.0",
@@ -93,6 +101,7 @@
     "yup": "0.32.9"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.191",
     "@next/bundle-analyzer": "^12.1.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

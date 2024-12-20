@@ -21,16 +21,16 @@ export default function IndexPage() {
       disableGutters
       title={t('title')}
       metaDescription={t('metaDescription')}>
-      <ActiveCampaignsSection />
-      <CompletedCampaignsSection />
-      <PlatformStatisticsSection />
-      <MediaSection />
-      <HowWeWorkSection />
-      <PartnersSection />
-      <TeamMembersSection />
-      <JoinPodkrepiBgSection />
-      <SubscriptionSection />
-      <FaqSection />
+      {/* <ActiveCampaignsSection /> */}
+      {/* <CompletedCampaignsSection /> */}
+      {/* <PlatformStatisticsSection /> */}
+      {/* <MediaSection /> */}
+      {/* <HowWeWorkSection /> */}
+      {/* <PartnersSection /> */}
+      {/* <TeamMembersSection /> */}
+      {/* <JoinPodkrepiBgSection /> */}
+      {/* <SubscriptionSection /> */}
+      {/* <FaqSection /> */}
     </Layout>
   )
 }

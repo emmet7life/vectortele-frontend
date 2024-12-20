@@ -5,10 +5,10 @@ import { Add as AddIcon } from '@mui/icons-material'
 import { Box, Toolbar, Tooltip, Typography } from '@mui/material'
 
 import { routes } from 'common/routes'
-import theme from 'common/theme'
+// import theme from 'common/theme'
 
 const toolbarStyles = {
-  background: theme.palette.common.white,
+  background: 'var(--palette-common-white)',
   borderTop: '1px solid lightgrey',
   display: 'flex',
   justifyContent: 'space-between',
@@ -16,7 +16,7 @@ const toolbarStyles = {
 }
 
 const addIconStyles = {
-  background: theme.palette.primary.light,
+  background: 'var(--palette-primary-light)',
   borderRadius: '50%',
   cursor: 'pointer',
   padding: 1.2,

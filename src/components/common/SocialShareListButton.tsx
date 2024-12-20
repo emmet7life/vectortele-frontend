@@ -11,7 +11,8 @@ import {
 import { ContentCopy, Facebook, LinkedIn, Share, Twitter, X } from '@mui/icons-material'
 
 import { AlertStore } from 'stores/AlertStore'
-import theme from 'common/theme'
+// import theme from 'common/theme'
+import { useTheme } from '@mui/material/styles'
 import { useTranslation } from 'next-i18next'
 
 export default function SocialShareListButton({
@@ -23,6 +24,7 @@ export default function SocialShareListButton({
   buttonProps?: ButtonProps
   popoverProps?: PopoverProps
 }) {
+  const theme = useTheme()
   const { t } = useTranslation('common')
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
 

@@ -4,10 +4,11 @@ import { Box, Toolbar, Tooltip, Typography } from '@mui/material'
 import { Add as AddIcon } from '@mui/icons-material'
 
 import { routes } from 'common/routes'
-import theme from 'common/theme'
+// import theme from 'common/theme'
+import { useTheme } from '@mui/material/styles'
 
 const addIconStyles = {
-  background: theme.palette.primary.light,
+  background: 'var(--palette-primary-light)',
   borderRadius: '50%',
   cursor: 'pointer',
   padding: 1.2,
@@ -16,6 +17,7 @@ const addIconStyles = {
 export default function GridAppbar() {
   const router = useRouter()
   const { t } = useTranslation()
+  const theme = useTheme()
 
   return (
     <Toolbar

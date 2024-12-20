@@ -3,7 +3,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import { format } from 'date-fns'
 import { useField, useFormikContext } from 'formik'
 import { useTranslation } from 'next-i18next'
-import theme from 'common/theme'
+// import theme from 'common/theme'
 
 import { DATE_VALUE_FORMAT, getDateFormat } from 'common/util/date'
 
@@ -13,7 +13,7 @@ interface FormDatePickerProps {
   maxDate?: Date
 }
 
-const errorValidationColor = theme.palette.error as unknown as string
+// const errorValidationColor = theme.palette.error as unknown as string
 
 /**
  * MUI date picker to be connected with Formik. Propagates updates to the passed Formik field name
@@ -56,12 +56,12 @@ export default function FormDatePicker({ name, label, maxDate }: FormDatePickerP
         sx={
           maxDate && meta.error
             ? {
-                '&.MuiOutlinedInput-root': {
-                  '& fieldset, &:hover fieldset, &.Mui-focused fieldset': {
-                    borderColor: errorValidationColor,
-                  },
+              '&.MuiOutlinedInput-root': {
+                '& fieldset, &:hover fieldset, &.Mui-focused fieldset': {
+                  borderColor: 'var(--palette-error)', // errorValidationColor
                 },
-              }
+              },
+            }
             : undefined
         }
         maxDate={maxDate}

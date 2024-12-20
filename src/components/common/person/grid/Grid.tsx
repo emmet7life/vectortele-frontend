@@ -26,7 +26,7 @@ import {
   usePersonList,
 } from 'common/hooks/person'
 import { routes } from 'common/routes'
-import theme from 'common/theme'
+// import theme from 'common/theme'
 import { PersonPaginatedResponse } from 'gql/person'
 import { PaginationData, SortData } from 'gql/types'
 import Switch from '@mui/material/Switch'
@@ -79,9 +79,9 @@ export default observer(function Grid() {
     const sortData: SortData =
       sortModel.length !== 0
         ? {
-            sortBy: sortModel[0].field === 'name' ? 'firstName' : sortModel[0].field,
-            sortOrder: sortModel[0].sort ?? 'desc',
-          }
+          sortBy: sortModel[0].field === 'name' ? 'firstName' : sortModel[0].field,
+          sortOrder: sortModel[0].sort ?? 'desc',
+        }
         : defaultSort
 
     setSortingModel(sortData)
@@ -317,7 +317,7 @@ export default observer(function Grid() {
       <Box>
         <DataGrid
           style={{
-            background: theme.palette.common.white,
+            background: 'var(--palette-common-white)',
             position: 'absolute',
             height: 'calc(100vh - 300px)',
             border: 'none',

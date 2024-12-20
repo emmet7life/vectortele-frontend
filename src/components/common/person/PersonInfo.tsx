@@ -1,9 +1,10 @@
 import { Box, Grid, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import theme from 'common/theme'
+// import theme from 'common/theme'
 import { formatDateString } from 'common/util/date'
 import { PersonResponse } from 'gql/person'
 import { useTranslation } from 'next-i18next'
+import { useTheme } from '@mui/material/styles'
 import React from 'react'
 
 const PREFIX = 'PersonInfo'
@@ -32,6 +33,7 @@ type Props = {
 
 function PersonInfo({ person }: Props) {
   const { t, i18n } = useTranslation()
+  const theme = useTheme()
   return (
     <StyledGrid container>
       <Grid item xs={12} md={6}>

@@ -8,14 +8,14 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import { Button, ListItem, ListItemButton } from '@mui/material'
 import { observer } from 'mobx-react'
 
-import theme from 'common/theme'
+// import theme from 'common/theme'
 
 export default observer(function NestedMenu() {
   const { toggleAccordion, accordionOpen } = DrawerStore
   const commongStyles = {
     display: { xs: 'none', sm: 'block' },
     letterSpacing: '1px',
-    color: theme.palette.common.black,
+    color: 'var(--palette-common-black)',
     width: '100%',
     padding: 0,
   }

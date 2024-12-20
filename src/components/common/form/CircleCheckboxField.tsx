@@ -14,6 +14,7 @@ import { TranslatableField, translateError } from 'common/form/validation'
 import React from 'react'
 import CheckIcon from '@mui/icons-material/Check'
 import theme from 'common/theme'
+// import { useTheme } from '@mui/material/styles'
 
 export type CircleCheckboxField = {
   name: string
@@ -24,6 +25,7 @@ export type CircleCheckboxField = {
 export default function CircleCheckboxField({ name, label, labelProps }: CircleCheckboxField) {
   const { t } = useTranslation()
   const [field, meta] = useField(name)
+  // const theme = useTheme()
   const helperText = meta.touched ? translateError(meta.error as TranslatableField, t) : ''
   return (
     <FormControl required component="fieldset" error={Boolean(meta.error) && Boolean(meta.touched)}>
@@ -31,9 +33,9 @@ export default function CircleCheckboxField({ name, label, labelProps }: CircleC
         sx={
           field.checked
             ? {
-                background: lighten(theme.palette.primary.main, 0.8),
-                border: `1px solid ${theme.borders.light}`,
-              }
+              background: lighten(theme.palette.primary.main, 0.8),
+              border: `1px solid ${theme.borders.light}`,
+            }
             : undefined
         }
         label={<Typography sx={{ fontWeight: 'bold', ml: 1 }}>{label}</Typography>}

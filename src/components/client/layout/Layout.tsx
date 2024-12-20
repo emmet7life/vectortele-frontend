@@ -9,6 +9,7 @@ import Snackbar from 'components/client/layout/Snackbar'
 import { defaultOgImage } from 'common/routes'
 import DetailsModal from 'components/admin/modal/DetailsModal'
 
+import AppHeader from './AppHeader'
 import AppNavBar from './AppNavBar'
 import MobileNav from './nav/MobileNav/MobileNav'
 import ScrollToTop from './ScrollToTop'
@@ -65,10 +66,13 @@ export default function Layout({
       maxWidth={false}
       disableGutters
       sx={{ backgroundColor: profilePage ? '#E9F6FF' : '' }}>
+      {/* 内容区 */}
       <Container
         sx={{ position: 'relative', minHeight: '100vh' }}
         maxWidth={maxWidth}
         {...containerProps}>
+
+        {/* SEO */}
         <Head>
           <title>{pageTitle}</title>
           <meta name="description" content={metaDescription ?? pageTitle} />
@@ -105,10 +109,15 @@ export default function Layout({
             />
           )}
         </Head>
+
+        {/* 脚本 */}
         <Script async src="https://www.googleoptimize.com/optimize.js?id=OPT-W89QK8X" />
+
+        {/* 主内容区 */}
         <Box pt={4} pb={disableOffset ? 0 : 10} {...boxProps}>
           {!mobileOpen ? (
-            <AppNavBar navMenuToggle={navMenuToggle} />
+            // <AppNavBar navMenuToggle={navMenuToggle} />
+            <AppHeader />
           ) : (
             <MobileNav mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
           )}
@@ -117,7 +126,6 @@ export default function Layout({
           )}
           {title && !disableOffset && (
             <Typography
-              paragraph
               variant="h2"
               component="h1"
               align="center"
@@ -135,7 +143,10 @@ export default function Layout({
         <Snackbar />
         <DetailsModal />
       </Container>
+
+      {/* Footer */}
       {!hideFooter && <Footer />}
+
       <ScrollToTop />
     </Container>
   )

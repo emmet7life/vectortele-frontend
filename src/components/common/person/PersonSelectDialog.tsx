@@ -2,7 +2,7 @@ import { LoadingButton } from '@mui/lab'
 import { Box, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material'
 import { translateError } from 'common/form/validation'
 import useConfirm from 'common/hooks/useConfirm'
-import theme from 'common/theme'
+// import theme from 'common/theme'
 import CloseModalButton from 'components/common/CloseModalButton'
 import FormFieldButton from 'components/common/FormFieldButton'
 import { PersonResponse } from 'gql/person'
@@ -10,6 +10,7 @@ import { useTranslation } from 'next-i18next'
 import React, { useState } from 'react'
 import PersonAutocomplete from './PersonAutocomplete'
 import PersonInfo from './PersonInfo'
+import { useTheme } from '@mui/material/styles'
 
 type Props = {
   onConfirm?: (person: PersonResponse | null) => void
@@ -24,6 +25,7 @@ function PersonSelectDialog({
   error,
   selectedPerson,
 }: Props) {
+  const theme = useTheme()
   const [person, setPerson] = useState<PersonResponse | null>(selectedPerson)
   const { t } = useTranslation()
   const { open, confirmHandler, closeHandler, openHandler, loading } = useConfirm({

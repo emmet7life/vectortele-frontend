@@ -9,7 +9,8 @@ import { routes } from 'common/routes'
 import GridActions from 'components/admin/GridActions'
 import { CampaignTypesResponse } from 'gql/campaign-types'
 import { useCampaignTypesList } from 'service/campaignTypes'
-import theme from 'common/theme'
+// import theme from 'common/theme'
+import { useTheme } from '@mui/material/styles'
 
 import { ModalStore } from '../CampaignTypesPage'
 import DetailsModal from './DetailsModal'
@@ -21,6 +22,7 @@ export default observer(function Grid() {
     page: 0,
   })
   const { t } = useTranslation()
+  const theme = useTheme()
 
   const { data }: UseQueryResult<CampaignTypesResponse[]> = useCampaignTypesList()
   const { isDetailsOpen } = ModalStore

@@ -1,3 +1,5 @@
+import type { CSSObject } from '@mui/material';
+import type { } from '@mui/material/themeCssVarsAugmentation';
 import {
   createTheme,
   darken,
@@ -5,10 +7,12 @@ import {
   responsiveFontSizes,
   Theme,
   ThemeOptions,
+  PaletteColorOptions
 } from '@mui/material/styles'
 
 import { Commissioner } from 'next/font/google'
 import { Montserrat } from 'next/font/google'
+import type { ApplyDarkStyles } from './brandingTheme'
 
 export const commissioner = Commissioner({
   subsets: ['latin', 'cyrillic'],
@@ -19,7 +23,93 @@ export const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
 })
 
-const colors = {
+export const systemFont = [
+  '-apple-system',
+  'BlinkMacSystemFont',
+  '"Segoe UI"',
+  'Roboto',
+  '"Helvetica Neue"',
+  'Arial',
+  'sans-serif',
+  '"Apple Color Emoji"',
+  '"Segoe UI Emoji"',
+  '"Segoe UI Symbol"',
+];
+
+// interface ApplyDarkStyles {
+//   (scheme: CSSObject): CSSObject;
+// }
+
+// declare module '@mui/material/styles' {
+//   interface Theme {
+//     applyDarkStyles: ApplyDarkStyles;
+//   }
+
+//   interface PaletteOptions {
+//     primaryDark?: PaletteColorOptions;
+//   }
+// }
+
+// declare module '@mui/material/styles/createPalette' {
+//   interface ColorRange {
+//     50: string;
+//     100: string;
+//     200: string;
+//     300: string;
+//     400: string;
+//     500: string;
+//     600: string;
+//     700: string;
+//     800: string;
+//     900: string;
+//   }
+
+//   interface PaletteColor extends ColorRange { }
+
+//   interface Palette {
+//     primaryDark: PaletteColor;
+//     gradients: {
+//       radioSubtle: string;
+//       linearSubtle: string;
+//     };
+//   }
+
+//   interface TypeText {
+//     tertiary: string;
+//   }
+// }
+
+// declare module '@mui/material/styles/createTypography' {
+//   interface TypographyOptions {
+//     fontWeightSemiBold?: number;
+//     fontWeightExtraBold?: number;
+//     fontFamilyCode?: string;
+//     fontFamilySystem?: string;
+//   }
+
+//   interface Typography {
+//     fontWeightSemiBold: number;
+//     fontWeightExtraBold: number;
+//     fontFamilyCode: string;
+//     fontFamilySystem: string;
+//   }
+// }
+
+export const blueDark = {
+  50: 'hsl(210, 14%, 92%)',
+  100: 'hsl(210, 14%, 87%)',
+  200: 'hsl(210, 14%, 72%)',
+  300: 'hsl(210, 14%, 56%)',
+  main: 'hsl(210, 14%, 56%)',
+  400: 'hsl(210, 14%, 36%)',
+  500: 'hsl(210, 14%, 28%)',
+  600: 'hsl(210, 14%, 22%)',
+  700: 'hsl(210, 14%, 13%)',
+  800: 'hsl(210, 14%, 9%)',
+  900: 'hsl(210, 14%, 7%)',
+};
+
+export const colors = {
   blue: {
     light: '#4AC3FF',
     main: '#32A9FE',
@@ -50,7 +140,11 @@ const borders = {
   input: 'rgba(0, 0, 0, 0.23)',
 }
 
-export const themeOptions: ThemeOptions = {
+const theme: Theme = createTheme({
+  colorSchemes: { light: true, dark: true },
+  cssVariables: {
+    colorSchemeSelector: 'class'
+  },
   palette: {
     mode: 'light',
     primary: {
@@ -58,6 +152,7 @@ export const themeOptions: ThemeOptions = {
       main: colors.blue.main,
       dark: colors.blue.dark,
     },
+    primaryDark: blueDark,
     secondary: {
       main: colors.yellow.main,
       light: colors.gray.main,
@@ -195,6 +290,16 @@ export const themeOptions: ThemeOptions = {
   typography: {
     fontFamily: commissioner.style.fontFamily,
 
+    fontFamilyCode: [
+      'Menlo', // macOS
+      'Consolas', // Windows
+      '"Droid Sans Mono"', // Linux
+      'monospace', // fallback
+    ].join(','),
+    fontFamilySystem: systemFont.join(','),
+    fontWeightSemiBold: 600,
+    fontWeightExtraBold: 800,
+
     h1: { fontFamily: montserrat.style.fontFamily },
     h2: { fontFamily: montserrat.style.fontFamily },
     h3: {
@@ -211,9 +316,10 @@ export const themeOptions: ThemeOptions = {
     },
     button: { textTransform: 'initial' },
   },
-}
-
-const theme: Theme = createTheme(themeOptions)
+  applyDarkStyles(css: Parameters<ApplyDarkStyles>[0]) {
+    return (this as Theme).applyStyles('dark', css);
+  }
+} as ThemeOptions)
 const materialTheme = responsiveFontSizes(theme)
 const podkrepiTheme = {
   borders,

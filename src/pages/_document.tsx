@@ -3,16 +3,21 @@
 import React from 'react'
 import { Html, Head, Main, NextScript, DocumentProps } from 'next/document'
 
-import theme from 'common/theme'
+// import theme from 'common/theme'
+import { useTheme } from '@mui/material/styles'
 import FaviconMetadata from 'components/common/brand/FaviconMetadata'
 
 import { DocumentHeadTags, documentGetInitialProps } from '@mui/material-nextjs/v14-pagesRouter'
+import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 
 interface MyDocumentProps extends DocumentProps {
   emotionStyleTags: JSX.Element[]
 }
 
 export default function MyDocument(props: MyDocumentProps) {
+
+  const theme = useTheme()
+
   return (
     <Html>
       <Head>
@@ -25,6 +30,8 @@ export default function MyDocument(props: MyDocumentProps) {
         <DocumentHeadTags {...props} />
       </Head>
       <body>
+        {/* must come before the <Main> element */}
+        <InitColorSchemeScript attribute="class" />
         <Main />
         <NextScript />
       </body>

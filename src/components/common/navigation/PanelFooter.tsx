@@ -1,12 +1,14 @@
 import { Box } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 
-import theme from 'common/theme'
+// import theme from 'common/theme'
 
 type Props = {
   children: React.ReactNode
 }
 
 function PanelFooter({ children }: Props) {
+  const theme = useTheme()
   return (
     <Box
       sx={{

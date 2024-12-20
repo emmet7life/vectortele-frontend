@@ -1,6 +1,7 @@
 import React from 'react'
 import { styled } from '@mui/material/styles'
-import theme from 'common/theme'
+// import theme from 'common/theme'
+import { useTheme } from '@mui/material/styles'
 
 const PREFIX = 'PodkrepiLogo'
 
@@ -36,6 +37,7 @@ export default function PodkrepiLogo({
   locale = 'bg',
   className,
 }: ParkhandsLogoProps) {
+  const theme = useTheme()
   const [width, height] = variant === 'fixed' ? sizes[size] : ['100%', '100%']
   return (
     <Root width={width} height={height} viewBox="0 0 118 24" className={className}>

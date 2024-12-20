@@ -2,6 +2,7 @@ import { Check } from '@mui/icons-material'
 import { styled, lighten } from '@mui/material/styles'
 import { FormControlLabel, Radio, Typography, RadioProps } from '@mui/material'
 import theme from 'common/theme'
+// import { useTheme } from '@mui/material/styles'
 import React from 'react'
 
 const PREFIX = 'RadioButton'
@@ -39,7 +40,7 @@ const StyledRadioButton = styled('div')<StyledRadioWrapperProps>(({ error }) => 
     width: 30,
     height: 30,
     border: `1px solid ${error ? theme.palette.error.main : theme.palette.primary.dark}`,
-    borderRadius: theme.borders.round,
+    borderRadius: 'var(--borders-round)',
   },
 
   [`& .${classes.checkIcon}`]: {
@@ -78,6 +79,7 @@ function RadioButton({
   disabled,
   error,
 }: RadioButtonProps) {
+  // const theme = useTheme()
   return (
     <StyledRadioButton error={error}>
       <FormControlLabel

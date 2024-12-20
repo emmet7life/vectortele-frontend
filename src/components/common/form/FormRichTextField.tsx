@@ -5,7 +5,7 @@ import { Typography } from '@mui/material'
 
 import { translateError } from 'common/form/useForm'
 import { TranslatableField } from 'common/form/validation'
-import theme from 'common/theme'
+// import theme from 'common/theme'
 import { styled } from '@mui/material/styles'
 
 //import { ModernEditor } from './MDXEditor'
@@ -16,7 +16,7 @@ export type FormRichTextFieldProps = {
   fileUploadCallback?: (file: File) => Promise<string>
 }
 
-const StyledGrid = styled('div')(() => ({
+const StyledGrid = styled('div')(({ theme }) => ({
   ['& .ql-toolbar.ql-snow']: {
     position: 'sticky',
     top: 0,

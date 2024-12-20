@@ -14,10 +14,10 @@ export const getServerSideProps: GetServerSideProps<{
   session: Session | null
 }> = async (ctx) => {
   const client = new QueryClient()
-  await client.prefetchQuery<CampaignResponse[]>(
-    [endpoints.campaign.listCampaigns.url],
-    campaignsOrderQueryFunction,
-  )
+  // await client.prefetchQuery<CampaignResponse[]>(
+  //   [endpoints.campaign.listCampaigns.url],
+  //   campaignsOrderQueryFunction,
+  // )
 
   //For getting session on server side the docs recommend using getServerSession as per
   //here: https://next-auth.js.org/configuration/nextjs#getserversession

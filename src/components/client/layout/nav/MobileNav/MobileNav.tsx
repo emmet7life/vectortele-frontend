@@ -4,12 +4,15 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 
-import { SwipeableDrawer, Grid } from '@mui/material'
+import { SwipeableDrawer, Grid2 as Grid } from '@mui/material'
 import FavoriteIcon from '@mui/icons-material/Favorite'
-
-import PodkrepiLogo from 'components/common/brand/PodkrepiLogo'
+import { StyledAuthButton } from '../AuthLinks/AuthLinks.styled'
+// import PodkrepiLogo from 'components/common/brand/PodkrepiLogo'
+import VectorTelecomLogo from 'components/common/brand/VectorTelecomLogo'
 import LocaleButton from '../../LocaleButton'
-import DonationMenuMobile from '../DonationMenuMobile'
+import ProductsMenuMobile from '../ProductsMenuMobile'
+import ContactUsMenuMobile from '../ContactUsMenuMobile'
+import ApplicationMenuMobile from '../ApplicationMenuMobile'
 import ProjectMenuMobile from '../ProjectMenuMobile'
 import { AuthLinks } from '../AuthLinks/AuthLinks'
 import { routes } from 'common/routes'
@@ -44,7 +47,7 @@ export default function MobileNav({ mobileOpen, setMobileOpen }: NavDeckProps) {
   }, [])
 
   return (
-    <Grid sx={{ display: { xs: 'flex', md: 'none' } }}>
+    <Grid container sx={{ display: { xs: 'flex', md: 'none' } }}>
       <SwipeableDrawer
         anchor="right"
         open={mobileOpen}
@@ -55,21 +58,57 @@ export default function MobileNav({ mobileOpen, setMobileOpen }: NavDeckProps) {
         <NavMenuWrapper>
           <OpenMenuHeader>
             <Link href={routes.index} passHref>
-              <PodkrepiLogo locale={locale} variant="adaptive" />
+              <VectorTelecomLogo locale={locale} variant="fixed" />
             </Link>
             <CloseButton edge="end" fontSize="large" onClose={closeNavMenu} />
           </OpenMenuHeader>
-          <Grid item>
-            <DonationMenuMobile />
+
+          {/* Products */}
+          <Grid>
+            <ProductsMenuMobile />
           </Grid>
-          <Grid item>
-            <ProjectMenuMobile />
+
+          {/* Services */}
+          <Grid>
+            <StyledAuthButton fullWidth href={routes.logout}>
+              {t('nav.services.index')}
+            </StyledAuthButton>
           </Grid>
-          <AuthLinks />
+
+          {/* Abouts Us */}
+          <Grid>
+            <StyledAuthButton fullWidth href={routes.logout}>
+              {t('nav.about-us.index')}
+            </StyledAuthButton>
+          </Grid>
+
+          {/* Contact Us */}
+          <Grid>
+            <ContactUsMenuMobile />
+          </Grid>
+
+          {/* FAQ */}
+          <Grid>
+            <StyledAuthButton fullWidth href={routes.logout}>
+              {t('nav.faq.index')}
+            </StyledAuthButton>
+          </Grid>
+
+          {/* Application */}
+          <Grid>
+            <ApplicationMenuMobile />
+          </Grid>
+
+          {/* Language */}
           <LocaleButtonWrapper>
             <LocaleButton />
           </LocaleButtonWrapper>
-          <Grid textAlign="center">
+
+          {/* <Grid>
+            <ProjectMenuMobile />
+          </Grid> */}
+          {/* <AuthLinks /> */}
+          {/* <Grid textAlign="center">
             <DonateButton
               size="large"
               variant="outlined"
@@ -77,7 +116,7 @@ export default function MobileNav({ mobileOpen, setMobileOpen }: NavDeckProps) {
               endIcon={<FavoriteIcon color="primary" fontSize="medium" />}>
               {t('nav.donate')}
             </DonateButton>
-          </Grid>
+          </Grid> */}
         </NavMenuWrapper>
       </SwipeableDrawer>
     </Grid>

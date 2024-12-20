@@ -1,9 +1,11 @@
 import React from 'react'
 import { SvgIcon, SvgIconProps } from '@mui/material'
 
-import theme from 'common/theme'
+// import theme from 'common/theme'
+import { useTheme } from '@mui/material/styles'
 
 export default function PodkrepiIcon({ color = 'primary', ...props }: SvgIconProps) {
+  const theme = useTheme()
   const [hand, finger] =
     color === 'primary'
       ? [theme.palette.primary.main, theme.palette.secondary.main]

@@ -1,12 +1,12 @@
 import React from 'react'
 
-import theme from 'common/theme'
+// import theme from 'common/theme'
 
 export default function NotFoundIllustration() {
   const [handColor, fingerColor, darkBlue] = [
-    theme.palette.primary.main,
-    theme.palette.secondary.main,
-    theme.palette.primary.dark,
+    'var(--palette-primary-main)',
+    'var(--palette-secondary-main)',
+    'var(--palette-primary-dark)',
   ]
   const [width, height] = ['100%', '100%']
 

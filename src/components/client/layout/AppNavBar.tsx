@@ -4,10 +4,12 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Menu } from '@mui/icons-material'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
-import { AppBar, Toolbar, IconButton, Grid, ButtonBase } from '@mui/material'
+import { AppBar, Toolbar, IconButton, ButtonBase } from '@mui/material'
+import Grid from '@mui/material/Grid2'
 
 import { routes } from 'common/routes'
 import PodkrepiLogo from 'components/common/brand/PodkrepiLogo'
+import VectorTelecomLogo from 'components/common/brand/VectorTelecomLogo'
 
 import LocaleButton from './LocaleButton'
 import PublicMenu from './nav/PublicMenu'
@@ -49,12 +51,15 @@ export default function AppNavBar({ navMenuToggle }: AppBarDeckProps) {
         backgroundColor: theme.palette.common.white,
       })}>
       <Toolbar
-        sx={{
+        sx={(theme) => ({
           height: '100%',
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-start',
           padding: 0,
-        }}>
+          [theme.breakpoints.down('md')]: {
+            justifyContent: 'space-between',
+          },
+        })}>
         <Link href={routes.index} passHref>
           <ButtonBase
             className={clsx({ shrink })}
@@ -77,7 +82,8 @@ export default function AppNavBar({ navMenuToggle }: AppBarDeckProps) {
                 height: '100%',
               },
             })}>
-            <PodkrepiLogo locale={locale} variant="adaptive" />
+            {/* <PodkrepiLogo locale={locale} variant="adaptive" /> */}
+            <VectorTelecomLogo locale={locale} variant="adaptive" />
           </ButtonBase>
         </Link>
         <Grid
@@ -93,10 +99,10 @@ export default function AppNavBar({ navMenuToggle }: AppBarDeckProps) {
             },
             display: { md: 'flex', xs: 'none' },
           })}>
-          <Grid item>
+          <Grid>
             <MainNavMenu>
               {status === 'authenticated' ? <PrivateMenu /> : <PublicMenu />}
-              <Grid item>
+              <Grid>
                 <LocaleButton />
               </Grid>
             </MainNavMenu>

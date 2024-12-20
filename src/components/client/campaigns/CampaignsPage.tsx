@@ -75,15 +75,15 @@ export default function CampaignsPage() {
 
   return (
     <Root maxWidth={false}>
-      <Grid>
+      {/* <Grid>
         <Typography variant="h1" component="h1" className={classes.title}>
           {t('campaigns:campaigns')}
         </Typography>
         <Typography variant="h6" component="h2" className={classes.support}>
           {t('campaigns:cta.support-cause-today')}
-        </Typography>
-        <CampaignFilter />
-      </Grid>
+        </Typography> */}
+      {/* <CampaignFilter /> */}
+      {/* </Grid> */}
     </Root>
   )
 }

@@ -1,14 +1,16 @@
 import { Typography, Box, Toolbar } from '@mui/material'
 import HomeIcon from '@mui/icons-material/Home'
 import { IconButton } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 
-import theme from 'common/theme'
+// import theme from 'common/theme'
 
 type Props = {
   title: string
 }
 
 export default function AppBarMenu({ title }: Props) {
+  const theme = useTheme()
   return (
     <Toolbar
       disableGutters

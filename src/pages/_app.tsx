@@ -1,5 +1,5 @@
 import { CssBaseline } from '@mui/material'
-import { Theme, ThemeProvider } from '@mui/material/styles'
+import { Theme, ThemeProvider, useTheme } from '@mui/material/styles'
 import { Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { appWithTranslation, useTranslation } from 'next-i18next'
 import { AppProps } from 'next/app'
@@ -7,7 +7,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
-import theme from 'common/theme'
+// import theme from 'common/theme'
 import useGTM from 'common/util/useGTM'
 
 import { SessionProvider } from 'next-auth/react'
@@ -28,7 +28,7 @@ import { AppCacheProvider } from '@mui/material-nextjs/v14-pagesRouter'
 
 declare module '@mui/styles/defaultTheme' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
+  interface DefaultTheme extends Theme { }
 }
 
 function CustomApp(props: AppProps) {
@@ -36,6 +36,7 @@ function CustomApp(props: AppProps) {
   const { i18n } = useTranslation()
   const { initialize, trackEvent } = useGTM()
   const { Component, pageProps } = props
+  const theme = useTheme()
 
   const handleAcceptCookie = () => {
     initialize({
@@ -92,7 +93,7 @@ function CustomApp(props: AppProps) {
   return (
     <AppCacheProvider {...props}>
       <Head>
-        <title>Podkrepi.bg</title>
+        <title>Vector Telecom</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={theme}>
@@ -106,10 +107,10 @@ function CustomApp(props: AppProps) {
             <Hydrate state={pageProps.dehydratedState}>
               <Provider {...stores}>
                 <Component {...pageProps} />
-                <NotificationSnackBar
+                {/* <NotificationSnackBar
                   mainProps={globalSnackbarProps}
                   contentProps={globalSnackbarContentProps}
-                />
+                /> */}
               </Provider>
             </Hydrate>
           </QueryClientProvider>

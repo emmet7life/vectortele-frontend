@@ -1,5 +1,5 @@
-import { styled } from '@mui/material/styles';
-import { Box } from '@mui/material';
+import { styled } from '@mui/material/styles'
+import { Box } from '@mui/material'
 import Image from 'next/image'
 
 type VectorTelecomLogoProps = {
@@ -23,13 +23,7 @@ export default function VectorTelecomLogo({
   const [width, height] = variant === 'fixed' ? sizes[size] : ['100%', '100%']
   return (
     <Box sx={{ position: 'relative', width, height }}>
-      <Image
-        alt="Vector Telecom Logo"
-        src={vectorTelecomLogo}
-        layout="fill"
-        objectFit="contain"
-        quality={100}
-      />
+      <Image alt="Vector Telecom Logo" src={vectorTelecomLogo} layout="fill" objectFit="contain" />
     </Box>
   )
 }

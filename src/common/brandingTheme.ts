@@ -265,7 +265,7 @@ export const getDesignTokens = (mode: 'light' | 'dark') =>
       },
     },
     shape: {
-      borderRadius: 12,
+      borderRadius: 8,
     },
     spacing: 8,
     typography: {
@@ -1316,64 +1316,64 @@ export function getThemedComponents(): ThemeOptions {
           disableTouchRipple: true,
         },
       },
-      MuiPaper: {
-        styleOverrides: {
-          root: ({ theme, ownerState }) => [
-            {
-              backgroundImage: 'none',
-              backgroundColor: '#fff',
-              '&[href]': {
-                textDecorationLine: 'none',
-              },
-              transition: theme.transitions.create(['border', 'box-shadow'], {
-                duration: theme.transitions.duration.shortest,
-              }),
-              ...(ownerState.variant === 'outlined' && {
-                display: 'block',
-                borderColor: (theme.vars || theme).palette.grey[100],
-                '&[href]': {
-                  textDecorationLine: 'none',
-                  boxShadow: `hsl(200, 0%, 100%) 0 2px 0 inset, ${alpha(theme.palette.grey[100], 0.3)} 0 -2px 0 inset, ${alpha(theme.palette.grey[200], 0.5)} 0 1px 2px 0`,
-                  '&:hover': {
-                    borderColor: (theme.vars || theme).palette.primary[200],
-                    boxShadow: `0px 2px 8px ${(theme.vars || theme).palette.primary[100]}`,
-                  },
-                  '&:focus-visible': {
-                    outline: `3px solid ${alpha(theme.palette.primary[500], 0.5)}`,
-                    outlineOffset: 2,
-                  },
-                },
-                ':is(a&), :is(button&)': {
-                  '&:hover': {
-                    borderColor: (theme.vars || theme).palette.primary[200],
-                    boxShadow: `0px 4px 16px ${(theme.vars || theme).palette.grey[200]}`,
-                  },
-                },
-              }),
-            },
-            theme.applyDarkStyles({
-              backgroundColor: (theme.vars || theme).palette.primaryDark[900],
-              ...(ownerState.variant === 'outlined' && {
-                borderColor: (theme.vars || theme).palette.primaryDark[700],
-                backgroundColor: alpha(theme.palette.primaryDark[800], 0.6),
-                '&[href]': {
-                  textDecorationLine: 'none',
-                  boxShadow: `${alpha(theme.palette.primaryDark[700], 0.4)} 0 2px 0 inset, ${(theme.vars || theme).palette.common.black} 0 -2px 0 inset, ${(theme.vars || theme).palette.common.black} 0 1px 2px 0`,
-                  '&:hover': {
-                    borderColor: alpha(theme.palette.primary[600], 0.5),
-                    boxShadow: `0px 2px 8px ${alpha(theme.palette.primary[900], 0.6)}`,
-                  },
-                },
-                ':is(a&), :is(button&)': {
-                  '&:hover': {
-                    boxShadow: `0px 4px 24px ${(theme.vars || theme).palette.common.black}`,
-                  },
-                },
-              }),
-            }),
-          ],
-        },
-      },
+      // MuiPaper: {
+      // styleOverrides: {
+      //   root: ({ theme, ownerState }) => [
+      //     {
+      //       backgroundImage: 'none',
+      //       backgroundColor: '#fff',
+      //       '&[href]': {
+      //         textDecorationLine: 'none',
+      //       },
+      //       transition: theme.transitions.create(['border', 'box-shadow'], {
+      //         duration: theme.transitions.duration.shortest,
+      //       }),
+      //       ...(ownerState.variant === 'outlined' && {
+      //         display: 'block',
+      //         borderColor: (theme.vars || theme).palette.grey[100],
+      //         '&[href]': {
+      //           textDecorationLine: 'none',
+      //           boxShadow: `hsl(200, 0%, 100%) 0 2px 0 inset, ${alpha(theme.palette.grey[100], 0.3)} 0 -2px 0 inset, ${alpha(theme.palette.grey[200], 0.5)} 0 1px 2px 0`,
+      //           '&:hover': {
+      //             borderColor: (theme.vars || theme).palette.primary[200],
+      //             boxShadow: `0px 2px 8px ${(theme.vars || theme).palette.primary[100]}`,
+      //           },
+      //           '&:focus-visible': {
+      //             outline: `3px solid ${alpha(theme.palette.primary[500], 0.5)}`,
+      //             outlineOffset: 2,
+      //           },
+      //         },
+      //         ':is(a&), :is(button&)': {
+      //           '&:hover': {
+      //             borderColor: (theme.vars || theme).palette.primary[200],
+      //             boxShadow: `0px 4px 16px ${(theme.vars || theme).palette.grey[200]}`,
+      //           },
+      //         },
+      //       }),
+      //     },
+      //     theme.applyDarkStyles({
+      //       backgroundColor: (theme.vars || theme).palette.primaryDark[900],
+      //       ...(ownerState.variant === 'outlined' && {
+      //         borderColor: (theme.vars || theme).palette.primaryDark[700],
+      //         backgroundColor: alpha(theme.palette.primaryDark[800], 0.6),
+      //         '&[href]': {
+      //           textDecorationLine: 'none',
+      //           boxShadow: `${alpha(theme.palette.primaryDark[700], 0.4)} 0 2px 0 inset, ${(theme.vars || theme).palette.common.black} 0 -2px 0 inset, ${(theme.vars || theme).palette.common.black} 0 1px 2px 0`,
+      //           '&:hover': {
+      //             borderColor: alpha(theme.palette.primary[600], 0.5),
+      //             boxShadow: `0px 2px 8px ${alpha(theme.palette.primary[900], 0.6)}`,
+      //           },
+      //         },
+      //         ':is(a&), :is(button&)': {
+      //           '&:hover': {
+      //             boxShadow: `0px 4px 24px ${(theme.vars || theme).palette.common.black}`,
+      //           },
+      //         },
+      //       }),
+      //     }),
+      //   ],
+      // },
+      // },
       MuiTableCell: {
         styleOverrides: {
           root: ({ theme, ownerState }) => ({

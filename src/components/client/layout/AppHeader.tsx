@@ -1,17 +1,17 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import GlobalStyles from '@mui/material/GlobalStyles';
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Container from '@mui/material/Container';
-import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import * as React from 'react'
+import { styled, alpha } from '@mui/material/styles'
+import GlobalStyles from '@mui/material/GlobalStyles'
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import Container from '@mui/material/Container'
+import Tooltip from '@mui/material/Tooltip'
+import IconButton from '@mui/material/IconButton'
+import GitHubIcon from '@mui/icons-material/GitHub'
 // import LogoWithCopyMenu from 'docs/src/components/action/LogoWithCopyMenu';
 import VectorTelecomLogo from 'components/common/brand/VectorTelecomLogo'
-import HeaderNavBar from './nav/Header/HeaderNavBar';
-import HeaderNavDropdown from './nav/Header/HeaderNavDropdown';
-import ThemeModeToggle from './nav/Header/ThemeModeToggle';
+import HeaderNavBar from './nav/Header/HeaderNavBar'
+import HeaderNavDropdown from './nav/Header/HeaderNavDropdown'
+import ThemeModeToggle from './nav/Header/ThemeModeToggle'
 // import { DeferredAppSearch } from 'docs/src/modules/components/AppFrame';
 // import { useTranslate } from '@mui/docs/i18n';
 import { useTranslation } from 'next-i18next'
@@ -29,12 +29,12 @@ const Header = styled('header')(({ theme }) => [
   theme.applyDarkStyles({
     backgroundColor: alpha(theme.palette.primaryDark[900], 0.7),
   }),
-]);
+])
 
-const HEIGHT = 60;
+const HEIGHT = 60
 
 export default function AppHeader() {
-  const t = useTranslation();
+  const t = useTranslation()
 
   return (
     <Header>
@@ -47,7 +47,7 @@ export default function AppHeader() {
       />
       <Container sx={{ display: 'flex', alignItems: 'center', minHeight: HEIGHT }}>
         {/* <LogoWithCopyMenu /> */}
-        <VectorTelecomLogo />
+        {/* <VectorTelecomLogo /> */}
         <Box sx={{ display: { xs: 'none', md: 'initial' } }}>
           <HeaderNavBar />
         </Box>
@@ -75,5 +75,5 @@ export default function AppHeader() {
         </Box>
       </Container>
     </Header>
-  );
+  )
 }
